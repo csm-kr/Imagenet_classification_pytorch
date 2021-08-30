@@ -19,13 +19,18 @@ experiments torchvision pretrained and re-trained params of imagenet classificat
 
 test_torchvision.py 
 
-|model       | # parameters      | Flops              | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | 
-|------------|-------------------| ------------------ | ---------- | --------- |-----------|-----------| ----------|
-|alexnet     | 2714566           |  366               | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|vgg11       | 507M              |  366               | 224 x 224  | 69.020    | 88.628    | 30.980    | 11.372    | 
-|vgg16       | 528M              |  366               | 224 x 224  | 71.592    | 90.382    | 28.408    | 9.618     | 
-|vgg19       | 548M              |  366               | 224 x 224  | 72.376    | 90.876    | 27.624    | 9.124     | 
-
+MFLOPS - 10^6
+GFLOPS - 10^9
+TFLOPS - 10^12
+ 
+|model       | # Parameters  | # Params | Flops          | Flops(G)      | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | 
+|------------|---------------| ---------|----------------|-------------- | ---------- | --------- |-----------|-----------| ----------|
+|alexnet     | 61,100,840    | 61M      |    714,691,904 |  0.71 GFlops  | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|vgg11       | 132,863,336   | 132.86M  |  7,616,566,272 |  7.62 GFlops  | 224 x 224  | 69.020    | 88.628    | 30.980    | 11.372    | 
+|vgg16       | 138,357,544   | 138.36M  | 15,483,862,016 | 15.48 GFlops  | 224 x 224  | 71.592    | 90.382    | 28.408    | 9.618     |  
+|vgg19       | 143,667,240   | 138.36M  | 19,646,964,736 | 19.65 GFlops  | 224 x 224  | 72.376    | 90.876    | 27.624    | 9.124     | 
+|resnet18    | 11,689,512    | 11.69M   |  1,819,066,368 |  1.82 GFlops  | 224 x 224  | 72.376    | 90.876    | 27.624    | 9.124     | 
+|resnet34    | 11,689,512    | 11.69M   |  1,819,066,368 |  1.82 GFlops  | 224 x 224  | 72.376    | 90.876    | 27.624    | 9.124     | 
 
 
 ### Experiment via our training params at validation set
@@ -35,6 +40,49 @@ Imagenet
 |model       | # parameters      | Flops              | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | Training Time |
 |------------|-------------------| ------------------ | ---------- | --------- |-----------|-----------| ----------|--------------| 
 |alexnet     | -                 | -                  | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+
+```
+Model | Params(M) | FLOPs(G)
+---|---|---
+alexnet | 61.10 | 0.71
+densenet121 | 7.98 | 2.87
+densenet161 | 28.68 | 7.79
+densenet169 | 14.15 | 3.40
+densenet201 | 20.01 | 4.34
+googlenet | 6.62 | 1.50
+inception_v3 | 23.83 | 5.73
+mnasnet0_5 | 2.22 | 0.11
+mnasnet0_75 | 3.17 | 0.23
+mnasnet1_0 | 4.38 | 0.33
+mnasnet1_3 | 6.28 | 0.54
+mobilenet_v2 | 3.50 | 0.31
+mobilenet_v3_large | 5.48 | 0.23
+mobilenet_v3_small | 2.54 | 0.06
+resnet101 | 44.55 | 7.83
+resnet152 | 60.19 | 11.56
+resnet18 | 11.69 | 1.82
+resnet34 | 21.80 | 3.67
+resnet50 | 25.56 | 4.11
+resnext101_32x8d | 88.79 | 16.48
+resnext50_32x4d | 25.03 | 4.26
+shufflenet_v2_x0_5 | 1.37 | 0.04
+shufflenet_v2_x1_0 | 2.28 | 0.15
+shufflenet_v2_x1_5 | 3.50 | 0.30
+shufflenet_v2_x2_0 | 7.39 | 0.59
+squeezenet1_0 | 1.25 | 0.82
+squeezenet1_1 | 1.24 | 0.35
+vgg11 | 132.86 | 7.62
+vgg11_bn | 132.87 | 7.63
+vgg13 | 133.05 | 11.32
+vgg13_bn | 133.05 | 11.35
+vgg16 | 138.36 | 15.48
+vgg16_bn | 138.37 | 15.51
+vgg19 | 143.67 | 19.65
+vgg19_bn | 143.68 | 19.68
+wide_resnet101_2 | 126.89 | 22.80
+wide_resnet50_2 | 68.88 | 11.43
+
+```
 
 
 
