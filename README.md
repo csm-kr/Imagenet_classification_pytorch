@@ -20,8 +20,12 @@ experiments torchvision pretrained and re-trained params of imagenet classificat
 test_torchvision.py 
 
 MFLOPS - 10^6
+
 GFLOPS - 10^9
+
 TFLOPS - 10^12
+
+https://pytorch.org/vision/stable/models.html
  
 |model       | # Parameters  | # Params | Flops          | Flops(G) | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | 
 |------------|---------------| ---------|----------------|--------- | ---------- | --------- |-----------|-----------| ----------|
@@ -32,7 +36,8 @@ TFLOPS - 10^12
 |resnet18    | 11,689,512    | 11.69M   |  1,819,066,368 |  1.82 G  | 224 x 224  | 69.758    | 89.078    | 30.242    | 10.922    | 
 |resnet34    | 21,797,672    | 21.80M   |  3,671,263,232 |  3.67 G  | 224 x 224  | 73.314    | 91.420    | 26.686    | 8.580     | 
 |resnet50    | 25,557,032    | 25.56M   |  4,111,514,624 |  4.11 G  | 224 x 224  | 76.130    | 92.862    | 23.870    | 7.138     | 
-|resnet101   | 44,549,160    | 44.55M   |  7,833,971,712 |  7.83 G  | 224 x 224  | 76.130    | 92.862    | 23.870    | 7.138     | 
+|resnet101   | 44,549,160    | 44.55M   |  7,833,971,712 |  7.83 G  | 224 x 224  | 77.374    | 93.546    | 22.626    | 6.454     | 
+|resnet152   | 44,549,160    | 44.55M   |  7,833,971,712 |  7.83 G  | 224 x 224  | 78.312    | 94.046    | 21.688    | 5.954     | 
 
 
 ### Experiment via our training params at validation set
@@ -86,8 +91,6 @@ vgg19_bn | 143.68 | 19.68
 wide_resnet101_2 | 126.89 | 22.80
 wide_resnet50_2 | 68.88 | 11.43
 ```
-
-
 
 ### training options
 

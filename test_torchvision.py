@@ -2,6 +2,8 @@ import torch
 import torchvision
 import torch.utils.data as data
 import torchvision.transforms as transforms
+from thop import profile
+
 
 if __name__ == "__main__":
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -18,10 +20,53 @@ if __name__ == "__main__":
     test_set = torchvision.datasets.ImageNet(root="D:\data\ILSVRC_classification", transform=transform, split='val')
     test_loader = data.DataLoader(test_set, batch_size=100, shuffle=True, num_workers=4)
 
+    batch_size_ = 1
+    input = torch.randn([batch_size_, 3, 224, 224]).to(device)
+
     # model = torchvision.models.alexnet(pretrained=True).to(device)
+    # macs, params = profile(model, inputs=(input,))
+    # print("#params", sum([x.numel() for x in model.parameters()]))
+    # print("flops :", macs / batch_size_)
+    # print("params : ", params)
+    #
     # model = torchvision.models.vgg11(pretrained=True).to(device)
+    # macs, params = profile(model, inputs=(input,))
+    # print("#params", sum([x.numel() for x in model.parameters()]))
+    # print("flops :", macs / batch_size_)
+    # print("params : ", params)
+    #
     # model = torchvision.models.vgg16(pretrained=True).to(device)
-    model = torchvision.models.vgg19(pretrained=True).to(device)
+    # macs, params = profile(model, inputs=(input,))
+    # print("#params", sum([x.numel() for x in model.parameters()]))
+    # print("flops :", macs / batch_size_)
+    # print("params : ", params)
+    #
+    # model = torchvision.models.vgg19(pretrained=True).to(device)
+    # macs, params = profile(model, inputs=(input,))
+    # print("#params", sum([x.numel() for x in model.parameters()]))
+    # print("flops :", macs / batch_size_)
+    # print("params : ", params)
+    # model.eval()
+
+    # model = torchvision.models.resnet50(pretrained=True).to(device)
+    # macs, params = profile(model, inputs=(input,))
+    # print("#params", sum([x.numel() for x in model.parameters()]))
+    # print("flops :", macs / batch_size_)
+    # print("params : ", params)
+    # model.eval()
+
+    # model = torchvision.models.resnet101(pretrained=True).to(device)
+    # macs, params = profile(model, inputs=(input,))
+    # print("#params", sum([x.numel() for x in model.parameters()]))
+    # print("flops :", macs / batch_size_)
+    # print("params : ", params)
+    # model.eval()
+
+    model = torchvision.models.resnet152(pretrained=True).to(device)
+    macs, params = profile(model, inputs=(input,))
+    print("#params", sum([x.numel() for x in model.parameters()]))
+    print("flops :", macs / batch_size_)
+    print("params : ", params)
     model.eval()
 
     correct_top1 = 0
