@@ -24,22 +24,30 @@ Resnet :
 
 Imagenet
 
-|model       | # parameters      | Flops                  | Resolution | top-5     |top - 1  | Training Time |
-|------------|-------------------| ---------------------- | ---------- | --------- |---------|--------| 
-|papers      | COCOtrain2017     |  COCO test-dev         | 224 x 224  |  34.0     |52.5     |98   |
-|papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2     |98   |
-|our repo    | COCOtrain2017     |  COCO test-dev         | 600 x 600  |**34.7**   |**53.6** |67   |
-|our repo    | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |**53.5** |67   |
+|model       | # parameters      | Flops                  | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | Training Time |
+|------------|-------------------| ---------------------- | ---------- | --------- |-----------|-----------| -----------|--------------| 
+|alexnet     | COCOtrain2017     |  COCO test-dev         | 224 x 224  |  34.0     |52.5     |98   |
+|vgg11       | COCOtrain2017     |  COCOval2017(minival)  | 224 x 224  |  34.3     |53.2     |98   |
+|vgg16       | COCOtrain2017     |  COCO test-dev         | 224 x 224  |**34.7**   |**53.6** |67   |
+|vgg19       | COCOtrain2017     |  COCOval2017(minival)  | 224 x 224  |**34.7**   |**53.5** |67   |
 
 
 ### Experiment via torchvision validation 
 
-|model       | # parameters      | Flops                  | Resolution | top-5     |top-1  | - |
-|------------|-------------------| ---------------------- | ---------- | --------- |---------|--------| 
-|Alexnet     | COCOtrain2017     |  COCO test-dev         | 224 x 224  |  34.0     |52.5     |98   |
-|papers      | COCOtrain2017     |  COCOval2017(minival)  | 224 x 224  |  34.3     |53.2     |98   |
-|our repo    | COCOtrain2017     |  COCO test-dev         | 600 x 600  |**34.7**   |**53.6** |67   |
-|our repo    | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |**53.5** |67   |
+test_torchvision.py 
+
+|model       | # parameters      | Flops                  | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | 
+|------------|-------------------| ---------------------- | ---------- | --------- |-----------|-----------| ----------|
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|vgg11       | 507M              |  366                   | 224 x 224  | 69.020    | 88.628    | 30.980    | 11.372    | 
+
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
 
 
 ### training options
