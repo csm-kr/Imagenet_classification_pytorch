@@ -1,11 +1,6 @@
 # Imagenet classification pytorch
 
-re-training of imagenet classification 
-
-Alexnet : https://arxiv.org/abs/1708.02002
-VGGnet :
-Resnet :
-
+experiments torchvision pretrained and re-trained params of imagenet classification 
 
 ### Setting
 
@@ -20,34 +15,27 @@ Resnet :
 - [x] Loss
 - [x] Coder
 
-### Experiment
-
-Imagenet
-
-|model       | # parameters      | Flops                  | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | Training Time |
-|------------|-------------------| ---------------------- | ---------- | --------- |-----------|-----------| -----------|--------------| 
-|alexnet     | COCOtrain2017     |  COCO test-dev         | 224 x 224  |  34.0     |52.5     |98   |
-|vgg11       | COCOtrain2017     |  COCOval2017(minival)  | 224 x 224  |  34.3     |53.2     |98   |
-|vgg16       | COCOtrain2017     |  COCO test-dev         | 224 x 224  |**34.7**   |**53.6** |67   |
-|vgg19       | COCOtrain2017     |  COCOval2017(minival)  | 224 x 224  |**34.7**   |**53.5** |67   |
-
-
-### Experiment via torchvision validation 
+### Experiment via torchvision pretrained params at validation set
 
 test_torchvision.py 
 
-|model       | # parameters      | Flops                  | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | 
-|------------|-------------------| ---------------------- | ---------- | --------- |-----------|-----------| ----------|
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|vgg11       | 507M              |  366                   | 224 x 224  | 69.020    | 88.628    | 30.980    | 11.372    | 
+|model       | # parameters      | Flops              | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | 
+|------------|-------------------| ------------------ | ---------- | --------- |-----------|-----------| ----------|
+|alexnet     | 2714566           |  366               | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+|vgg11       | 507M              |  366               | 224 x 224  | 69.020    | 88.628    | 30.980    | 11.372    | 
+|vgg16       | 528M              |  366               | 224 x 224  | 71.592    | 90.382    | 28.408    | 9.618     | 
+|vgg19       | 548M              |  366               | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
-|alexnet     | 2714566           |  366                   | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+
+
+### Experiment via our training params at validation set
+
+Imagenet
+
+|model       | # parameters      | Flops              | Resolution | top-1 Acc | top-5 Acc | top-1 Err | top-5 Err | Training Time |
+|------------|-------------------| ------------------ | ---------- | --------- |-----------|-----------| ----------|--------------| 
+|alexnet     | -                 | -                  | 224 x 224  | 56.522    | 79.066    | 43.478    | 20.934    | 
+
 
 
 ### training options
@@ -64,8 +52,8 @@ test_torchvision.py
 
 - dataset
 
-    train : trainval35k == train2017
-    test : minval2014 == val2017
+    train : Imagenet training dataset
+    test : Imagenet validation dataset
 
 - data augmentation
 
@@ -76,15 +64,11 @@ test_torchvision.py
     
 ### Reference
 
-ssd tutorial : data augmentation and detection structure
+Alexnet : https://papers.nips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
 
-https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection
+VGGnet : https://arxiv.org/abs/1409.1556
 
-retina net pytorch
-
-https://github.com/NVIDIA/retinanet-examples
-
-https://github.com/yhenon/pytorch-retinanet
+Resnet :
 
 ### Start Guide
 

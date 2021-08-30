@@ -19,8 +19,9 @@ if __name__ == "__main__":
     test_loader = data.DataLoader(test_set, batch_size=100, shuffle=True, num_workers=4)
 
     # model = torchvision.models.alexnet(pretrained=True).to(device)
-    model = torchvision.models.vgg11(pretrained=True).to(device)
-    model = torchvision.models.vgg16(pretrained=True).to(device)
+    # model = torchvision.models.vgg11(pretrained=True).to(device)
+    # model = torchvision.models.vgg16(pretrained=True).to(device)
+    model = torchvision.models.vgg19(pretrained=True).to(device)
     model.eval()
 
     correct_top1 = 0
